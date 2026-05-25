@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<main class="container">
+
+    <div class="card">
+        <% if(result.success){ %> 
+        <h2>Resultado</h2>
+        <p><strong>Equação:</strong> <%= result.equation %></p>
+        <h3>Processo:</h3>
+    
+        <ul>
+            <% result.process.forEach(step => { %>
+            <li><%= step %></li>
+        <% }) %>
+        </ul>}
+
+        <h3>Resultado Final:</h3>
+
+        <pre><%= JSON.stringify(result.result, null, 2) %></pre>
+
+        <% } else { %>
+            <h2>Erro</h2>
+            <p><%= result.message %></p>
+        <% } %>
+
+        <a href="/">Voltar</a>
+        
+    </div>
+
+</main>
